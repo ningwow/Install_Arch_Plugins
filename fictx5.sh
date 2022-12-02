@@ -83,6 +83,7 @@ echo '' >> /home/rjn/.xprofile
 echo '' >> /home/rjn/.xprofile
 echo '' >> /home/rjn/.xprofile
 echo '' >> /home/rjn/.xprofile
+
 fcitx5
 echo 'exec --no-startup-id fcitx5' >> ~/.config/i3/config
-echo ('现在，fcitx5已经安装好了，xinitrc和xprofile的变量也已经设置好了，可以注销或重新登陆了，如果打开程序很慢，有可能是xprofile里的变量有问题')
+echo ('please:1.stop fcitx5  2.vim .config/fcitx5/conf/pinyin.conf PreeditInApplication=False  ')
