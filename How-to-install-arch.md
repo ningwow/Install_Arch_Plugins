@@ -154,16 +154,19 @@
 
 # 现在，使用脚本（以下忽略）
 
-install_arch-1.sh	安装基本系统，然后exit推出chroot且umount -l、然后重启了
-重启完成后
-输入301791密码登录
-使用sudo
-接下载，安装字体和yay
-然后安装输入法
+	install_arch-1.sh	安装基本系统，然后exit推出chroot且umount -l、然后重启了
+	重启完成后
+	输入301791密码登录
+	使用sudo
+	接下载，安装字体和yay
+	然后安装输入法
 
-使用rjn
-安装yay,chrome
-安装声音控制其器
+	使用rjn
+	安装yay,chrome
+	安装声音控制其器
+## 声音方面
+	alsamixer
+	pipewire套件或者pulse audio(前者在虚拟机上似乎不行)
 
 
 
