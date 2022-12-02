@@ -180,3 +180,4 @@ install_arch-1.sh	安装基本系统，然后exit推出chroot且umount -l、然�
 	$ hwclock --systohc
 	
 	
+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
