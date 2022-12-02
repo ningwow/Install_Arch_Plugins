@@ -9,7 +9,7 @@
 
 
 
-pacman -Syy fcitx5 fcitx5-configtool fcitx5-material-color fcitx5-qt fcitx5-chinese-addons  fcitx5-gtk fcitx5-pinyin-zhwiki --noconfirm
+pacman -Syy --noconfirm fcitx5 fcitx5-configtool fcitx5-material-color fcitx5-qt fcitx5-chinese-addons  fcitx5-gtk fcitx5-pinyin-zhwiki
 
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 echo '##chinese setting' >> /home/rjn/.xinitrc
@@ -78,9 +78,11 @@ echo '#eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets
 echo '#export SSH_AUTH_SOCK' >> /home/rjn/.xprofile
 
 echo '#exec dbus-launch i3' >> /home/rjn/.xprofile
-echo 'exec i3   \\这个文件应该启用i3,考虑不一定用i3,先略过' >> /home/rjn/.xprofile
+echo '#exec i3   \\这个文件应该启用i3,考虑不一定用i3,先略过,发现启用i3后lightdm无法进入i3' >> /home/rjn/.xprofile
 echo '' >> /home/rjn/.xprofile
 echo '' >> /home/rjn/.xprofile
 echo '' >> /home/rjn/.xprofile
 echo '' >> /home/rjn/.xprofile
+fcitx5
+echo 'exec --no-startup-id fcitx5' >> ~/.config/i3/config
 echo ('现在，fcitx5已经安装好了，xinitrc和xprofile的变量也已经设置好了，可以注销或重新登陆了，如果打开程序很慢，有可能是xprofile里的变量有问题')

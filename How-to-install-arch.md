@@ -141,7 +141,7 @@
 	
 ## 修改文件
 	vim /etc/mkinitcpio.conf
-	在DULES=(btrfs)	\\因为我们使用btrfs，maybe
+	在DULES=(btrfs)	\\如果使用btrfs，maybe
 
 ## mkinitcpio
 	mkinitcpio -p linux \\因为我们安装的是linxu内核，如果是linux-lts，则加linux-lts，不知到这个命令是干啥的，反正是个重要的
