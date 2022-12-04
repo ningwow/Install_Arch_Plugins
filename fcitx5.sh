@@ -86,4 +86,4 @@ echo '' >> /home/rjn/.xprofile
 
 fcitx5
 echo 'exec --no-startup-id fcitx5' >> /home/rjn/.config/i3/config
-echo ('please:1.stop fcitx5  2.vim .config/fcitx5/conf/pinyin.conf PreeditInApplication=False  ')
+echo 'please:1.stop fcitx5  2.vim .config/fcitx5/conf/pinyin.conf PreeditInApplication=False '
