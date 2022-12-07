@@ -2,9 +2,10 @@
 #设置时区
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 #同步硬件和系统时钟
+#双启动下使用一下命令
 timedatectl set-timezone Asia/Shanghai
 timedatectl set-ntp true
-hwclock --systohc
+#hwclock --systohc  \\这是同步硬件时钟，在双启动下不要执行
 #sed -i '178s/.//' /etc/locale.gen  \\不知道什么意思
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
@@ -53,4 +54,6 @@ echo "rjn ALL=(ALL) ALL" >> /etc/sudoers.d/ermanno
 echo 'remember setting passwd and umount -l or reboot'
 echo 'please pacman -S i3'
 echo 'remeber execed = sudo virsh net-autostart  --network default'
+timedatectl | grep local
+
 echo 0
