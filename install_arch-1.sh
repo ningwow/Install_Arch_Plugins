@@ -50,6 +50,7 @@ echo "rjn ALL=(ALL) ALL" >> /etc/sudoers.d/ermanno
 
 
 #printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"   \\不知道啥意思
-echo ('remember setting passwd and umount -l or reboot')
-echo ('please pacman -S i3')
+echo 'remember setting passwd and umount -l or reboot'
+echo 'please pacman -S i3'
+echo 'remeber execed = sudo virsh net-autostart  --network default'
 echo 0
