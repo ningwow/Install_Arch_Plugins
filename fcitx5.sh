@@ -73,7 +73,7 @@ echo '#export LIBVA_DRIVER_NAME='vdpau' \\\\视频硬件加速,详看https://wik
 echo '#export LIBVA_DRIVERS_PATH='/usr/lib/dri/'' >> /home/rjn/.xprofile
 echo '#export VDPAU_DRIVER='nvidia'' >> /home/rjn/.xprofile
 
-echo '#--gnome密钥环;   \\gnome密钥环还不懂,略过' >> /home/rjn/.xprifile
+echo '#--gnome密钥环;   \\gnome密钥环还不懂,略过' >> /home/rjn/.xprofile
 echo '#eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"' >> /home/rjn/.xprofile
 echo '#export SSH_AUTH_SOCK' >> /home/rjn/.xprofile
 
