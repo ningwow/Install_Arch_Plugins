@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#时间设置   /设置时域和ntp服务
+timedatectl set-timezone Asia/Shanghai
+timedatectl set-ntp true
+#hwclock --systohc  \\这是同步硬件时钟，在双启动下不要执行
+
+
 pacman -S --noconfirm base-devel make gcc go thunar
 #密钥串及反射器(定时更新mirror)
 pacman -S --noconfirm archlinux-keyring reflector 
@@ -23,13 +29,16 @@ cd yay
 #su rjn -c "makepkg -si"    需要等待输入必须手动
 
 #安装杂项
-pacman -S zsh zsh-completions alacritty  
+pacman -S --noconfirm zsh zsh-completions alacritty  
 chsh -s /bin/zsh rjn
 chsh -s /bin/zsh root
 cd /home/rjn
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+su rjn -c "wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 su rjn -c "chmod +x install.sh"
 su rjn -c "./install.sh"
+cp /home/rjn/.oh-my-zsh /usr/share/oh-my-zsh
+#手动.zshrc 文件中的 export ZSH=/usr/share/oh-my-zsh/
+#   mv /home/rjn/.zshrc /root/.zshrc
 
 
 #配置图形   手动优先

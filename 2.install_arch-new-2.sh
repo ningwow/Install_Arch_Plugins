@@ -13,7 +13,7 @@ locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
 #设置键盘布局
-echo "KEYMAP = de-latin1" >> /etc/vconsole.conf
+echo "KEYMAP = us" >> /etc/vconsole.conf
 
 #设置主机名
 echo "First" >> /etc/hostname   #主机名
