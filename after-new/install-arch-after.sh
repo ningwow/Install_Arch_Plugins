@@ -30,7 +30,7 @@ cd /home/rjn
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 su rjn -c "chmod +x install.sh"
 su rjn -c "./install.sh"
-
+pacman -S thunar
 
 #配置图形   手动优先
 #xrandr --output HDMI-1 --mode 1920x1080 --rate 60

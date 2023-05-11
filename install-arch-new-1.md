@@ -26,7 +26,7 @@
     2.reflector --country China --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # 安装基本包    /important
-    pacstrap -K /mnt base linux linux-firmware git vim
+    pacstrap -K /mnt base linux linux-firmware git vim wget
 
 # 生成fstab文件     important
     genfstab -U /mnt >> /mnt/etc/fstab

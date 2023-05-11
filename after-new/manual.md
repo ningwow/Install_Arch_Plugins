@@ -8,3 +8,9 @@
     makepkg -si
     y
 
+# alacritty配置
+    vim .config/i3/config   配置terminal为alacritty
+
+# 配置图形   手动优先
+    #xrandr --output HDMI-1 --mode 1920x1080 --rate 60
+    #echo "xrandr --output HDMI-1 --mode 1920x1080 --rate 60" >> /etc/profile
