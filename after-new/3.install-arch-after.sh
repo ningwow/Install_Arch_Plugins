@@ -8,7 +8,7 @@ timedatectl set-ntp true
 
 pacman -S --noconfirm base-devel make gcc go thunar
 #密钥串及反射器(定时更新mirror)
-pacman -S --noconfirm archlinux-keyring reflector 
+pacman -S --noconfirm archlinux-keyring reflector linux-headers
 echo "--country China" >> /etc/xdg/reflector/reflector.conf
 ##配置自动更新反射器
 systemctl enable --now reflector
@@ -39,7 +39,7 @@ su rjn -c "./install.sh"
 cp /home/rjn/.oh-my-zsh /usr/share/oh-my-zsh
 #手动.zshrc 文件中的 export ZSH=/usr/share/oh-my-zsh/
 #   mv /home/rjn/.zshrc /root/.zshrc
-
+../a/clash.sh
 
 #配置图形   手动优先
 #xrandr --output HDMI-1 --mode 1920x1080 --rate 60
