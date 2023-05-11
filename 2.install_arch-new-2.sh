@@ -33,7 +33,7 @@ echo "rjn:301791" | chpasswd
 
 
 #安装引导加载程序   /important
-pacman -S --noconfirm grub efibootmgr
+pacman -S --noconfirm grub efibootmgr os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
