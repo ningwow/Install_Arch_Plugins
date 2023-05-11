@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S --noconfirm base-devel make gcc go 
+pacman -S --noconfirm base-devel make gcc go thunar
 #密钥串及反射器(定时更新mirror)
 pacman -S --noconfirm archlinux-keyring reflector 
 echo "--country China" >> /etc/xdg/reflector/reflector.conf
@@ -12,7 +12,7 @@ systemctl enable --now reflector.timer
 ##安装xorg服务器
 pacman -S --noconfirm xorg xorg-xinit xorg-twm xorg-xclock xterm
 ##安装窗口管理器和显示管理器
-pacman -S --noconfirm i3 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S --noconfirm i3 dmenu lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 systemctl enable lightdm
 ##如果不使用显示管理器，可以startx启动xorg（简陋）
 
@@ -30,7 +30,7 @@ cd /home/rjn
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 su rjn -c "chmod +x install.sh"
 su rjn -c "./install.sh"
-pacman -S thunar
+
 
 #配置图形   手动优先
 #xrandr --output HDMI-1 --mode 1920x1080 --rate 60
