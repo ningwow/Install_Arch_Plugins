@@ -38,20 +38,29 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #安装基本功能
-pacman -S ntfs-3g   #文件系统实用程序/后续补充
-pacman -S pulseaudio pulseaudio-bluetooth pulseaudio-alsa pulseaudio-jack pulseaudio-lirc kmix  #声音服务器及其他声音程序
-pacman -S networkmanager network-manager-applet dhcpcd      #网络服务程序
+pacman -S --noconfirm sudo      #安装杂项
+echo "%wheel    ALL=(ALL:ALL) ALL" >> /etc/sudoers
+
+pacman -S --noconfirm ntfs-3g   #文件系统实用程序/后续补充
+pacman -S --noconfirm pulseaudio pulseaudio-bluetooth pulseaudio-alsa pulseaudio-jack pulseaudio-lirc kmix  #声音服务器及其他声音程序
+pacman -S --noconfirm networkmanager network-manager-applet dhcpcd      #网络服务程序
 systemctl enable NetworkManager
 
-#安装nvidia驱动程序
-#pacman -S 
+#安装nvidia驱动程序或暂时安装开源驱动程序
+#pacman -S xf86-video-nouveau       #开源驱动程序
 
 #现在这是一个只有命令行的arch新系统了
 
 
 ---
-#安装图形化
+#安装其他及配置图形化
+pacman -S --noconfirm archlinux-keyring reflector 
+echo "--country China" >> /etc/xdg/reflector/reflector.conf
+systemctl enable --now reflector
+systemctl enable --now reflector.timer
 
+
+##安装xorg服务器
 
 
 
