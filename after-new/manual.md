@@ -17,3 +17,7 @@
 # 配置图形   手动优先
     #xrandr --output HDMI-1 --mode 1920x1080 --rate 60
     #echo "xrandr --output HDMI-1 --mode 1920x1080 --rate 60" >> /etc/profile
+
+# nvidia 配置 important
+    将‘nomodeset nouveau.modeset=0’参数添加到grub默认条目(GRUB_CNDLINE_LINUX_DEFAULT="*")，然后grub-mkconfig -O
+    
