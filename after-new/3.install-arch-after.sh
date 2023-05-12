@@ -38,7 +38,7 @@ su rjn -c "chmod +x install.sh"
 su rjn -c "./install.sh"
 cp /home/rjn/.oh-my-zsh /usr/share/oh-my-zsh
 #手动.zshrc 文件中的 export ZSH=/usr/share/oh-my-zsh/
-#   mv /home/rjn/.zshrc /root/.zshrc
+#   sudo cp /home/rjn/.zshrc /root/.zshrc
 #../a/clash.sh
 
 #配置图形   手动优先
