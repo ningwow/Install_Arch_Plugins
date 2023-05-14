@@ -1,0 +1,7 @@
+#!/bin/sh
+
+while true
+do	
+	feh --no-fehbg --bg-max --randomize ~/Picture/wallpaper/*
+	sleep 600 
+done
