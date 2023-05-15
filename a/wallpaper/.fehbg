@@ -2,6 +2,6 @@
 
 while true
 do	
-	feh --no-fehbg --bg-max --randomize ~/Picture/wallpaper/*
+	feh --no-fehbg --bg-center --randomize ~/Picture/wallpaper/*
 	sleep 600 
 done
