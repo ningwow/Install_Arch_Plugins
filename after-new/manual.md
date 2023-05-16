@@ -27,4 +27,8 @@
     下载壁纸到～/Picture/wallpaper/*
 
 # vim插件自动安装操作
- vim 启动   ：PlugStatus #查看插件状态  ：PlugInstall #安装之前在配置文件中声明的插件
+    vim 启动   ：PlugStatus #查看插件状态  ：PlugInstall #安装之前在配置文件中声明的插件
+
+# 模糊锁屏及自动锁屏
+    i3lockr --blur=25 到~/.config/i3/config绑定键
+    自动锁屏启动程序已echo到i3config

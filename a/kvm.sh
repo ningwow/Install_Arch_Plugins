@@ -2,7 +2,7 @@
 
 #安装及加入组
 sudo pacman -S --noconfirm qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat ebtables iptables-nft libguestfs
-sudo usermod -a -G libvirt $(whoami)
+sudo usermod -a -G libvirt rjn
 newgrp libvirt
 #配置文件
 echo "unix_sock_group = "libvirt"" >> /etc/libvirt/libvirtd.conf

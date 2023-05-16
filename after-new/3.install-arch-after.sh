@@ -29,7 +29,7 @@ cd yay
 #su rjn -c "makepkg -si"    需要等待输入必须手动
 
 #安装杂项
-pacman -S --noconfirm zsh zsh-completions alacritty  
+pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent
 chsh -s /bin/zsh rjn
 chsh -s /bin/zsh root
 cd /home/rjn
