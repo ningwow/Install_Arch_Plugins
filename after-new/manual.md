@@ -32,3 +32,7 @@
 # 模糊锁屏及自动锁屏
     i3lockr --blur=25 到~/.config/i3/config绑定键
     自动锁屏启动程序已echo到i3config
+
+# 在kvm中安装windwo时使用bios模式
+
+
