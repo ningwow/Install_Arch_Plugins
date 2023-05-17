@@ -24,4 +24,5 @@ sudo printf "301791\n301791\n"  |  sudo smbpasswd -a -s rjn
 
 
 # 连接方式,[share]，名称看这个
-\\server\share
+#在程序中开启smb
+#\\server\share
