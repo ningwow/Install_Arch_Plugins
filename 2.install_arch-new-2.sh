@@ -49,16 +49,13 @@ systemctl enable NetworkManager
 #安装nvidia驱动程序或暂时安装开源驱动程序
 #pacman -S xf86-video-nouveau       #开源驱动程序
 
-#现在这是一个只有命令行的arch新系统了
-su rjn -c "mkdir ~/Download"
-su rjn -c "mkdir ~/Document"
-su rjn -c "mkdir ~/Desktop"
-su rjn -c "mkdir ~/Pictures"
-su rjn -c "mkdir ~/Music"
-su rjn -c "mkdir ~/Templates"
-su rjn -c "mkdir ~/Videos"
-su rjn -c "mkdir ~/Public"
+#安装工具，创建用户下强制创建英文目录
+pacman -S --noconfirm xdg-user-dirs
+su rjn -c "LC_ALL=C xdg-user-dirs-update --force"
+LC_ALL=C xdg-user-dirs-update --force
 
+
+#现在这是一个只有命令行的arch
 
 
 
