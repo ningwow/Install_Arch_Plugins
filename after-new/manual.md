@@ -35,4 +35,8 @@
 
 # 在kvm中安装windwo时使用bios模式
 
+# lightdm 使用sudo启动 light-gtk-greeter-settings管理器
+    背景图片可以放在/usr/share/backgrounds///用户目录无法读取
+    设置图片的可读取权限
 
+# 
