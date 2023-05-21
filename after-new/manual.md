@@ -39,4 +39,5 @@
     背景图片可以放在/usr/share/backgrounds///用户目录无法读取
     设置图片的可读取权限
 
-# 
+# 默认应用程序gui工具
+    yay -S selectdefaultapplication-git
