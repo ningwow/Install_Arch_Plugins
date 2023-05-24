@@ -39,5 +39,9 @@
     背景图片可以放在/usr/share/backgrounds///用户目录无法读取
     设置图片的可读取权限
 
-# 默认应用程序gui工具
+# 默认(xdg-open)应用程序gui工具
     yay -S selectdefaultapplication-git
+
+# vscode安装
+    # pacman -S --noconfirm code    这是开源版本，功能不齐全，无法使用
+    yay -S  visual-studio-code-bin      这是官方版本，很nice
