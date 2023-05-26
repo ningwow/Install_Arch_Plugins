@@ -41,3 +41,5 @@ pacman -S sysstat
 #显示wifi上网百分比
 
 #带宽指示
+#使用bandwidth2,需要make
+
