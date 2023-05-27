@@ -3,8 +3,9 @@
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #时间设置   /设置时域和ntp服务
-timedatectl set-timezone Asia/Shanghai
-timedatectl set-ntp true
+##chroot模式下无法使用ctl程序
+#timedatectl set-timezone Asia/Shanghai
+#timedatectl set-ntp true
 #hwclock --systohc  \\这是同步硬件时钟，在双启动下不要执行
 
 #编辑语言环境   /设置LANG变量
