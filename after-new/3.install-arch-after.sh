@@ -8,7 +8,7 @@ timedatectl set-ntp true
 
 pacman -S --noconfirm base-devel make gcc go thunar
 #密钥串及反射器(定时更新mirror)
-pacman -S --noconfirm archlinux-keyring reflector linux-headers
+pacman -S --noconfirm archlinux-keyring gnome-keyring reflector linux-headers
 echo "--country China" >> /etc/xdg/reflector/reflector.conf
 ##配置自动更新反射器
 systemctl enable --now reflector
