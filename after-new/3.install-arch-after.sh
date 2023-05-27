@@ -33,13 +33,15 @@ pacman -S --noconfirm gdb code
 
 #安装杂项
 pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent
+
+#切换zsh
 chsh -s /bin/zsh rjn
 chsh -s /bin/zsh root
 cd /home/rjn
 su rjn -c "wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
-su rjn -c "chmod +x install.sh"
+chmod +x install.sh
 su rjn -c "./install.sh"
-cp /home/rjn/.oh-my-zsh /usr/share/oh-my-zsh
+cp -r /home/rjn/.oh-my-zsh /usr/share/oh-my-zsh
 #手动.zshrc 文件中的 export ZSH=/usr/share/oh-my-zsh/
 #   sudo cp /home/rjn/.zshrc /root/.zshrc
 #../a/clash.sh

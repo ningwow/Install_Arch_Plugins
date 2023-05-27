@@ -4,8 +4,8 @@
 #pacman -S --noconfirm polybar
 
 #使用i3-status
-mkdir /home/.config/i3status
-cp /etc/i3status.conf /home/rjn/.config/i3status/config
+#mkdir /home/rjn/.config/i3status
+#cp /etc/i3status.conf /home/rjn/.config/i3status/config
 
 
 #克隆插件目录
@@ -17,7 +17,7 @@ mv scripts /home/rjn/.config/i3/
 #i3status or i3blocks 是同一种作用，推荐使用i3blocks
 
 #更改i3config配置文件，bar为i3blocks
-
+cp -r i3blocks /home/rjn/.config/i3/i3blocks.conf
 
 ##########借鉴与：https://github.com/vivien/i3blocks-contrib
 

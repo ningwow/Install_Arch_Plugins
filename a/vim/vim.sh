@@ -1,16 +1,19 @@
 #!/bin/bash
 # 注意。需要给root和rjn都安装配置
-cp ./.vimrc ~/.vimrc
-su rjn -c "cp ./.vimrc ~/.vimrc"
+cp .vimrc ~/.vimrc
+su rjn -c "cp .vimrc ~/.vimrc"
 #自定义配色文件
 mkdir ~/.vim
 su rjn -c "mkdir ~/.vim"
+
 cp -r ./colors ~/.vim/colors
 su rjn -c "cp -r ./colors ~/.vim/colors"
+
 #插件管理器安装目录
 mkdir ~/.vim/autoload
 su rjn -c "mkdir ~/.vim/autoload"
 #cp ./plug.vim ~/.vim/auteload
+
 #插件安装目录
 mkdir ~/.vim/bundle
 su rjn -c "mkdir  ~/.vim/bundle"
