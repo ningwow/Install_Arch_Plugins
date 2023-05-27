@@ -8,6 +8,7 @@ echo "exec sleep 2 && /usr/share/clash/cfw &"
 #普通代理（没有tun模式的情况下）
 sudo chmod 666 /etc/environment
 #编辑文件 /etc/environment
+echo "all_proxy=socks5://127.0.0.1:7890/" >> /etc/environment
 echo "http_proxy=http://127.0.0.1:7890/" >> /etc/environment
 echo "https_proxy=http://127.0.0.1:7890/" >> /etc/environment
 echo "ftp_proxy=http://127.0.0.1:7890/" >> /etc/environment
