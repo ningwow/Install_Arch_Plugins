@@ -7,7 +7,7 @@
 #自动补全
 git clone https://github.com/zsh-users/zsh-autosuggestions /usr/share/oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-
+cp ./zshrc /home/rjn/.zshrc
 #zsh-autosuggestions加入到git中
 #sudo，忘记sudo.按两次esc键
 #web-search，使用google ... 在终端中快捷搜索
