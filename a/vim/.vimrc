@@ -16,12 +16,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
-
+Plug 'rakr/vim-one'
+let g:airline_theme='one'
+Plug 'whatyouhide/vim-gotham'
 call plug#end()
-
-
-
-
 
 
 
@@ -33,7 +31,10 @@ filetype plugin on
 " 为检测到的文件加载缩进文件
 filetype indent on
 " 语法高亮
+set t_Co=256
 syntax on
+"智能命令
+set comments=sl:/*,mb:\ *,elx:\ */
 " 显示行号
 set number
 " 突出光标所在的行和列
@@ -80,7 +81,10 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 """高亮显示配色方案
 """自定义配色目录~/.vim/colors
 set background=dark
-colorscheme moonfly 
+"colorscheme moonfly 
+colorscheme one 
+"colorscheme gotham256
+"colorscheme spaceduck 
 "default, blue, darkblue, delek, desert, elford, evening, industry, 
 "koehler, morning, murphy, pablo, peachpuff, ron, shine, slate, torte, 
 
@@ -96,4 +100,9 @@ set statusline+=%=
 set statusline+=\--------:\ row:\ %l\ col:\ %c\ percent:\ %p%%
 " 在倒数第二行显示状态。
 set laststatus=2
+"使用上一行的缩进
+set autoindent
+"为c使用智能缩进
+set smartindent
+
 
