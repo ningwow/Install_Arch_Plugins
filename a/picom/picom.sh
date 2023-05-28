@@ -9,5 +9,5 @@
 
 sudo pacman -S -- noconfirm picom
 echo "exec picom &" >> ~/.config/i3/config
-cp ./picom.conf ~/.config/picom.conf
+cp picom.conf /home/rjn/.config/picom.conf
 exec picom &
