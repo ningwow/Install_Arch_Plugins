@@ -13,7 +13,7 @@ echo "--country China" >> /etc/xdg/reflector/reflector.conf
 ##配置自动更新反射器
 systemctl enable --now reflector
 systemctl enable --now reflector.timer
-而系统
+
 
 ##安装xorg服务器
 pacman -S --noconfirm xorg xorg-xinit xorg-twm xorg-xclock xterm

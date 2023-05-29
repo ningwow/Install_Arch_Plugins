@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#https://wiki.archlinux.org/title/Touchpad_Synaptics
 #测试成功
 #这是触摸板配置
 echo '#' >> /etc/X11/xorg.conf.d/30-touchpad.conf
