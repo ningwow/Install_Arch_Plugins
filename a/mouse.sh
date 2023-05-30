@@ -26,3 +26,4 @@ pacman -S --noconfirm unclutter
 # 使用方法：https://wiki.archlinux.org/title/Xinput
 # 设置 touchpad 的 accel speed 属性调高为0.3
 # eg: xinput set-prop 11 315 0.3
+# 记得加入到/etc/profile启动文件中

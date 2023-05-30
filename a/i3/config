@@ -5,8 +5,8 @@
 # this file and re-run i3-config-wizard(1).
 #
 #窗口间隙
-gaps inner 1
-gaps outer 1
+gaps inner 5
+gaps outer 5
 #新窗口边缘
 default_border pixel 0
 default_floating_border pixel 0

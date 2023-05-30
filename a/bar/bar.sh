@@ -21,6 +21,15 @@ cp -r i3blocks /home/rjn/.config/i3/i3blocks.conf
 
 ##########借鉴与：https://github.com/vivien/i3blocks-contrib
 
+#cpu使用率（依赖mpstat,于sysstat包含）
+pacman -S sysstat
+
+#cpu温度
+#https://github.com/jplatte/i3blocks-scripts/blob/master/cpu-temp
+#在i3blocks中写入配置文件
+
+
+
 
 #亮度显示(默认以安装)
 #btightness
@@ -30,8 +39,7 @@ cp -r i3blocks /home/rjn/.config/i3/i3blocks.conf
 #pacman -S --noconfirm acpi
 
 
-#cpu使用率（依赖mpstat,于sysstat包含）
-pacman -S sysstat
+
 
 #调光器（放置高亮看不清）
 
