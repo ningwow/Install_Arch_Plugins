@@ -4,5 +4,6 @@
 pacman -S --noconfirm ranger w3m
 
 #启动图片预览
+su rjn -c "mkdir /home/rjn/.config/ranger"
 echo "set preview_images true" >> /home/rjn/.config/ranger/rc.conf
-echo "set preview_images_method w3m >> /home/rjn/.config/ranger/rc.conf
+echo "set preview_images_method w3m" >> /home/rjn/.config/ranger/rc.conf

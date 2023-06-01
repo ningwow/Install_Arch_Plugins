@@ -1,0 +1,11 @@
+#!/bin/bash
+
+backlight=/sys/class/backlight/intel_backlight/
+step=9600
+repo="0 1 2 3 4 5 6 7 8 9 10"
+light=(< $backlight/brightness)
+a=""
+case $1 in
+	-) echo $(($(< $backlight/brightness) - $step)) > $backlight/brightness;;
+	+) echo $(($(< $backlight/brightness) + $step)) > $backlight/brightness;;
+esac
