@@ -38,9 +38,7 @@ pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent p7zip
 chsh -s /bin/zsh rjn
 chsh -s /bin/zsh root
 cd /home/rjn
-su rjn -c "wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
-chmod +x install.sh
-su rjn -c "./install.sh"
+su rjn -c "sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
 cp -r /home/rjn/.oh-my-zsh /usr/share/oh-my-zsh
 #手动.zshrc 文件中的 export ZSH=/usr/share/oh-my-zsh/
 #   sudo cp /home/rjn/.zshrc /root/.zshrc
