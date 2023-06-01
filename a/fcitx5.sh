@@ -7,7 +7,7 @@
 #echo 'en_US.UTF-8 UTF-8' >>/etc/locale.gen
 #echo 'zh_CN.UTF-8 UTF-8' >>/etc/locale.gen
 
-#调整字体大小 /home/rjn/.config/fcitx5/conf   15差不多
+#调整字体大小 /home/rjn/.config/fcitx5/conf/classicui.conf   15差不多
 
 
 pacman -Syy --noconfirm fcitx5 fcitx5-configtool fcitx5-material-color fcitx5-qt fcitx5-chinese-addons  fcitx5-gtk fcitx5-pinyin-zhwiki

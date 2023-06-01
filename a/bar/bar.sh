@@ -17,12 +17,12 @@ mv scripts /home/rjn/.config/i3/
 #i3status or i3blocks 是同一种作用，推荐使用i3blocks
 
 #更改i3config配置文件，bar为i3blocks
-cp -r i3blocks /home/rjn/.config/i3/i3blocks.conf
+cp  i3blocks.conf /home/rjn/.config/i3/
 
 ##########借鉴与：https://github.com/vivien/i3blocks-contrib
 
 #cpu使用率（依赖mpstat,于sysstat包含）
-pacman -S sysstat
+pacman -S --noconfirm sysstat
 
 #cpu温度
 #https://github.com/jplatte/i3blocks-scripts/blob/master/cpu-temp
