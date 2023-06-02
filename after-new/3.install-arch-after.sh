@@ -11,8 +11,8 @@ pacman -S --noconfirm base-devel make gcc go thunar
 pacman -S --noconfirm archlinux-keyring gnome-keyring reflector linux-headers
 echo "--country China" >> /etc/xdg/reflector/reflector.conf
 ##配置自动更新反射器
-systemctl enable --now reflector
-systemctl enable --now reflector.timer
+#systemctl enable --now reflector
+#systemctl enable --now reflector.timer
 
 
 ##安装xorg服务器
