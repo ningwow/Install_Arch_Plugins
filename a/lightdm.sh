@@ -2,7 +2,7 @@
 
 #lightdm及背景设计
 
-pacman -S lightdm-gtk-greeter-settings lightdm-gtk-greeter
+pacman -S --noconfirm lightdm-gtk-greeter-settings lightdm-gtk-greeter
 
 echo "greeter-session = lightdm-gtk-greeter" >> /etc/lightdm/lightdm.conf
 
