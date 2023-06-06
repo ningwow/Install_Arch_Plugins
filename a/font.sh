@@ -8,3 +8,6 @@ pacman -S --confirm noto-fonts noto-fonts-cjk wqy-microhei wqy-zenhei adobe-sour
 
 pacman -S ttf-font-awesome
 
+##emoji
+pacman -S noto-fonts-emoji
+#paru -S ttf-symbola
