@@ -6,7 +6,7 @@ timedatectl set-ntp true
 #hwclock --systohc  \\这是同步硬件时钟，在双启动下不要执行
 
 
-pacman -S --noconfirm base-devel make gcc go thunar
+pacman -S --noconfirm base-devel make gcc go thunar gvfs-mtp
 #密钥串及反射器(定时更新mirror)
 pacman -S --noconfirm archlinux-keyring gnome-keyring reflector linux-headers
 echo "--country China" >> /etc/xdg/reflector/reflector.conf
