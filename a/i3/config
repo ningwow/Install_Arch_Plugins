@@ -252,7 +252,7 @@ bar {
 }
 
 exec --no-startup-id fcitx5 &
-exec "sleep 2 && /usr/share/clash/cfw &"
+exec "sleep 2 && cfw &"
 exec /home/rjn/.fehbg
 exec unclutter &
 exec blueberry-tray &

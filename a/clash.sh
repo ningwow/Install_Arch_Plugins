@@ -5,11 +5,12 @@ wget https://github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.22/
 tar -zxvf Clash.for.Windows-0.20.22-x64-linux.tar.gz
 mv Clash\ for\ Windows-0.20.22-x64-linux clash
 sudo mv clash /usr/share/clash
-echo "exec sleep 2 && /usr/share/clash/cfw &"
-#或从aur安装clash
+echo "exec "sleep 2 && /usr/share/clash/cfw &""
+
+##或从aur安装clash   优先
 paru -S clash-for-windows-bin
 cfw
-
+echo "exec "sleep 2 && cfw &""
 
 
 #普通代理（没有tun模式的情况下）
