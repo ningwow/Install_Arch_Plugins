@@ -1,35 +1,23 @@
 #!/bin/bash
-##或从aur安装clash   优先
-paru -S clash-for-windows-bin
-cfw
-echo "exec "sleep 2 && cfw &""
+##因为权限问题及解决方法setcap无效问题，手动开启tun
+#手动开启tun模式
+#创建 /usr/lib/systemd/system/clash-core-service.service 
+{
+[Unit]
+Description=Clash core service created by Clash for Windows
+After=network-online.target nftables.service iptables.service
 
-#{{{tun模式参考
-#原理，关闭系统dns服务，使用clash的dns劫持代替。不用创建虚拟网卡
-#https://help.bprolink.com/linux/clash.html
-#首先需要下载 Clash Premium 版本，替换上面的 clash 文件。接着需要设置 Linux 系统，开启转发功能。编辑文件 /etc/sysctl.conf，添加以下内容：
-net.ipv4.ip_forward=1
+[Service]
+Type=simple
+ExecStart=/opt/clash.for.windows/resources/static/files/linux/x64/service/clash-core-service
+Restart=always
+RestartSec=5
 
-#保存退出后，执行以下命令使修改生效：
-sudo sysctl -p
-
-#然后接着需要关闭系统的 DNS 服务，使用以下命令：
-sudo systemctl stop systemd-resolved
-sudo systemctl disable systemd-resolved
-
-#然后启用clash中tun按钮，关闭环境变量}}}
-
-
-
-
-
-
-
-
-
-
-
-
+[Install]
+WantedBy=multi-user.target
+}
+systemctl enable --now clash-core-service.service 
+#然后重启clash，一切正常
 
 #安装clash
 wget https://github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.22/Clash.for.Windows-0.20.22-x64-linux.tar.gz
