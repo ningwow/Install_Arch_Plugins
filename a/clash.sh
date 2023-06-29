@@ -19,6 +19,8 @@ WantedBy=multi-user.target
 systemctl enable --now clash-core-service.service 
 #然后重启clash，一切正常
 
+
+
 #安装clash
 wget https://github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.22/Clash.for.Windows-0.20.22-x64-linux.tar.gz
 tar -zxvf Clash.for.Windows-0.20.22-x64-linux.tar.gz
