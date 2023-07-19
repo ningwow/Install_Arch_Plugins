@@ -37,8 +37,8 @@ echo '#' >> /home/rjn/.xinitrc
 echo '#' >> /home/rjn/.xinitrc
 echo '#' >> /home/rjn/.xinitrc
 echo '#--gnome密钥环;   \\gnome密钥环还不懂,略过' >> /home/rjn/.xinitrc
-echo '#eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"' >> /home/rjn/.xinitrc
-echo '#export SSH_AUTH_SOCK' >> /home/rjn/.xinitrc
+echo 'eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"' >> /home/rjn/.xinitrc
+echo 'export SSH_AUTH_SOCK' >> /home/rjn/.xinitrc
 echo '#' >> /home/rjn/.xinitrc
 echo '#' >> /home/rjn/.xinitrc
 echo '#exec dbus-launch i3' >> /home/rjn/.xinitrc
@@ -75,8 +75,8 @@ echo '#export LIBVA_DRIVERS_PATH='/usr/lib/dri/'' >> /home/rjn/.xprofile
 echo '#export VDPAU_DRIVER='nvidia'' >> /home/rjn/.xprofile
 
 echo '#--gnome密钥环;   \\gnome密钥环还不懂,略过' >> /home/rjn/.xprofile
-echo '#eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"' >> /home/rjn/.xprofile
-echo '#export SSH_AUTH_SOCK' >> /home/rjn/.xprofile
+echo 'eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"' >> /home/rjn/.xprofile
+echo 'export SSH_AUTH_SOCK' >> /home/rjn/.xprofile
 
 echo '#exec dbus-launch i3' >> /home/rjn/.xprofile
 echo '#exec i3   \\这个文件应该启用i3,考虑不一定用i3,先略过,发现启用i3后lightdm无法进入i3' >> /home/rjn/.xprofile
