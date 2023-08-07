@@ -7,6 +7,8 @@ gnome-keyring-daemon --start --components=secrets
 
 
 
-#vscode需要指定密钥环，在code启动文件中中(/usr/bin/code)加入 "--password-store="gnome""
+#vscode需要指定密钥环
+#新建启动文件，code --password-store="gnome" >> /usr/bin/vscode
+
 #钥匙环gui
 pacman --noconfirm -S seahorse  #giu管理程序

@@ -39,7 +39,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #安装基本功能
-pacman -S --noconfirm sudo acpi acpid rust    #安装杂项
+pacman -S --noconfirm sudo acpi acpid rust go    #安装杂项
 echo "%wheel    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 pacman -S --noconfirm ntfs-3g   #文件系统实用程序/后续补充
