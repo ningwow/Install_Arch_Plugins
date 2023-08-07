@@ -44,7 +44,7 @@ echo "%wheel    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 pacman -S --noconfirm ntfs-3g   #文件系统实用程序/后续补充
 pacman -S --noconfirm alsa-utils pulseaudio pulseaudio-bluetooth pulseaudio-alsa pulseaudio-jack pulseaudio-lirc sof-firmware alsa-ucm-conf kmix  #声音服务器及其他声音程序
-pacman -S --noconfirm networkmanager network-manager-applet dhcpcd      #网络服务程序
+pacman -S --noconfirm networkmanager network-manager-applet dhcpcd networkmanager-openvpn openvpn     #网络服务程序
 systemctl enable NetworkManager
 
 #安装nvidia驱动程序或暂时安装开源驱动程序
