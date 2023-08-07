@@ -31,3 +31,8 @@ virsh net-autostart --network default
 # https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/#virtio-win-direct-downloads
 # https://raphtlw.medium.com/how-to-set-up-a-kvm-qemu-windows-10-vm-ca1789411760
 # https://matteocroce.medium.com/windows-as-qemu-guest-a115a56043b6
+
+
+# 克隆虚拟机
+# https://cloud.tencent.com/developer/article/2017453
+
