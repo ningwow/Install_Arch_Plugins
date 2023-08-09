@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#参考#https://wiki.archlinux.org/title/GTK
+
 #黑暗模式只需安装theme文件和修改配置文件
 
 #（貌似无用）黑暗主题设置,需要gtk守护程序

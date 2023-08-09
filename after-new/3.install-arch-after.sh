@@ -32,7 +32,7 @@ cd yay
 pacman -S --noconfirm gdb code
 
 #安装杂项
-pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent p7zip
+pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent p7zip cheese    #gnome相机
 
 #切换zsh
 chsh -s /bin/zsh rjn
