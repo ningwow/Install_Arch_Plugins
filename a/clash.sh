@@ -1,4 +1,22 @@
 #!/bin/bash
+
+
+
+#clash内核作者跑路，建议使用daed或者v2raya
+#daed是dae的带面板程序，使用linux内核技术，推荐使用，v2ray2使用v2ra内核，也推荐nekory，可使用xing-box内核
+#daed的操作逻辑不同，注意
+yay -S daed
+systemctl enable --now daed
+
+yay -S v2raya
+systemctl enable --now v2ray v2raya
+
+
+
+
+
+
+
 ##因为权限问题及解决方法setcap无效问题，手动开启tun
 #手动开启tun模式
 #创建 /usr/lib/systemd/system/clash-core-service.service 
