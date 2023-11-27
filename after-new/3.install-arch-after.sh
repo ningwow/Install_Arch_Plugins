@@ -29,7 +29,7 @@ cd yay
 #su rjn -c "makepkg -si"    需要等待输入必须手动
 
 #开发环境
-pacman -S --noconfirm gdb code
+pacman -S --noconfirm gdb code python python-pip
 
 #安装杂项
 pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent p7zip cheese    #gnome相机
