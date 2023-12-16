@@ -28,9 +28,9 @@ echo "127.0.1.1 First" >> /etc/hosts
 mkinitcpio -P
 
 #设置密码   /root密码和创建新用户
-echo "root:301791" | chpasswd
+echo "root:******" | chpasswd
 useradd -m -G wheel  rjn   #创建新用户并设置密码
-echo "rjn:301791" | chpasswd
+echo "rjn:******" | chpasswd
 
 
 #安装引导加载程序   /important
