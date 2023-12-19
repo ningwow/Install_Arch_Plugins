@@ -5,8 +5,8 @@
 # this file and re-run i3-config-wizard(1).
 #
 #窗口间隙
-gaps inner 5
-gaps outer 5
+gaps inner 2
+gaps outer 2
 #新窗口边缘
 default_border pixel 0
 default_floating_border pixel 0
@@ -64,7 +64,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -104,7 +104,7 @@ bindsym $mod+j focus left
 bindsym $mod+k focus right 
 #bindsym $mod+k focus down
 #bindsym $mod+l focus up
-bindsym $mod+l exec --no-startup-id i3lockr --blur=20 
+bindsym $mod+l exec --no-startup-id i3lockr --blur=30 
 #bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -141,6 +141,8 @@ bindsym $mod+e layout toggle split
 
 # start google-chrome
 bindsym $mod+p exec --no-startup-id /opt/google/chrome/google-chrome
+bindsym $mod+o exec --no-startup-id firefox
+
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -191,6 +193,14 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# 指定启动工作区
+assign [class="Clash for Windows"] $ws9
+
+
+
+
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -228,34 +238,37 @@ bindsym control+shift+Escape exec xfce4-taskmanager
 bindsym $mod+r mode "resize"
 bindsym $mod+shift+s exec "flameshot gui"
 bindsym Print exec "flameshot gui"
-
+bindsym $mod+b exec --no-startup-id "i3lockr --blur=40 && sleep 0.5 && xset dpms force off"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    font pango:Noto Sans Regular 8, FontAwesome 8
-    position   top           
+#bar {
+#    font pango:Noto Sans Regular 12, FontAwesome 12
+#    position   top           
 #    status_command i3status
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #    i3bar_command i3bar --transparency
-    tray_padding    0
-    	colors {
-    	    separator          $purple
-	        background         $darkgrey
-	        statusline         $white
+#    tray_padding    0
+#    	colors {
+#    	    separator          $purple
+#	        background         $darkgrey
+#	        statusline         $white
         #border 		        bg		txt		indicator
-    	    focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-	        active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-	        inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-    	    urgent_workspace	$urgentred	    	$urgentred	$white		$purple
-	}
-
-}
+#    	    focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+#	        active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
+#	        inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+#    	    urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+#	}
+#
+#}
+exec_always --no-startup-id /home/rjn/.config/polybar/launch.sh
 
 exec --no-startup-id fcitx5 &
-exec "sleep 2 && cfw &"
+#exec --no-startup-id  clash
+exec xfce4-power-manager &
 exec /home/rjn/.fehbg
 exec unclutter &
 exec blueberry-tray &
 exec  picom &
-exec --no-startup-id xautolock -time 3h -locker 'i3lockr --blur=20'
+exec --no-startup-id xautolock -time 1h -locker 'i3lockr --blur=30'
 exec xfce4-power-manager &
