@@ -1,3 +1,9 @@
+#使用kitty
+kitty
+#使用以下命令切换主题
+kitty +kitten themes
+Dark *
+
 #!/bin/bash
 sudo pacman -S --noconfirm alacritty
 #配置文件难找
