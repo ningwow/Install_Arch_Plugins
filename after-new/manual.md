@@ -12,6 +12,21 @@
     cd /home/rjn/yay
     makepkg -si
     y
+# DNS配置
+    sudo nano /etc/systemd/resolved.conf
+    将以下配置加入以上文件，禁止服务对/etc/resolv.conf的修改
+    [Resolve]
+    DNSStubListener=no
+
+    sudo nano /etc/NetworkManager/NetworkManager.conf
+    将以下配置加入以上文件，禁止服务对/etc/resolv.conf的修改
+    [main]
+    dns=none
+
+    或者使用 chattr +i /etc/resolv.conf 禁止服务对其修改
+    使用chattr -i /etc/resolv.conf 取消
+
+
 
 # alacritty配置
     vim .config/i3/config   配置terminal为alacritty
