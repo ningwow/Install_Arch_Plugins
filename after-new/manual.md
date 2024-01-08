@@ -13,6 +13,12 @@
     makepkg -si
     y
 # DNS配置
+    /etc/resolv.conf
+    nameserver 223.5.5.5
+    nameserver 8.8.8.8
+    nameserver 2400:3200::1
+    nameserver 2001:4860:4860::8888
+
     sudo nano /etc/systemd/resolved.conf
     将以下配置加入以上文件，禁止服务对/etc/resolv.conf的修改
     [Resolve]
@@ -23,8 +29,13 @@
     [main]
     dns=none
 
+  建议使用
     或者使用 chattr +i /etc/resolv.conf 禁止服务对其修改
     使用chattr -i /etc/resolv.conf 取消
+
+# 风扇在linux下无法正常运行
+    在linux内核选项/etc/default/grub
+    default里加入acpi-os-name=Windows
 
 
 
