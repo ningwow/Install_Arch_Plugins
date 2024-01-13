@@ -35,7 +35,8 @@
 
 # 风扇在linux下无法正常运行
     在linux内核选项/etc/default/grub
-    default里加入acpi-os-name=Windows
+    default里加入acpi_os_name='Windows 2022'
+    acpi_osi='Windows 2022'
 
 
 
