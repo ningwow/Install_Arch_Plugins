@@ -7,6 +7,8 @@
 #可配置圆角，阴影，透明，好多
 
 
+配置中 必须：  backend = "glx";
+
 sudo pacman -S --noconfirm picom
 echo "exec picom &" >> ~/.config/i3/config
 cp picom.conf /home/rjn/.config/picom.conf
