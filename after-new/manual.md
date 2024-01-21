@@ -39,6 +39,11 @@
     acpi_osi='Windows 2022'
 
 
+# 主题设置
+    安装lxappearance 以设置gtk主题
+    安装qt5ct 以设置qt主题
+    查看wiki以安装arc或仿gnome主题
+
 
 # alacritty配置
     vim .config/i3/config   配置terminal为alacritty
