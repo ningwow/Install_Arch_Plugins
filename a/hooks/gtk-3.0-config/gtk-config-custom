@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# 配置信息
+config_data="
+[Settings]
+gtk-icon-theme-name = Arc-Dark
+gtk-theme-name = Arc-Dark
+gtk-font-name = fira-code 11
+"
+
+# 目标文件
+config_file="/usr/share/gtk-3.0/settings.ini"
+
+# 检查文件是否存在，如果不存在则创建
+if [ ! -f "$config_file" ]; then
+    touch "$config_file"
+fi
+
+# 将配置信息写入文件
+echo "$config_data" > "$config_file"
+
+# 输出成功信息
+#echo "配置已写入到 $config_file"
+
+
