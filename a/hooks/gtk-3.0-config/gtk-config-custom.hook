@@ -2,11 +2,11 @@
 Type = Path
 Operation = Install
 Operation = Upgrade
-Target = usr/share/icons/*/
-Target = !usr/share/icons/*/?*
+Target = usr/lib/gtk-3.0/3.0.0/immodules/*.so
+#Target = usr/share/icons/*/
+#Target = !usr/share/icons/*/?*
 
 [Action]
-Description = Updating icon theme caches...
+Description = don`t change config files of gtk-3.0
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/gtk-config-custom
-NeedsTargets
