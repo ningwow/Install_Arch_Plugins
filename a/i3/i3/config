@@ -261,7 +261,7 @@ bindsym $mod+b exec --no-startup-id "i3lockr --blur=40 && sleep 0.5 && xset dpms
 #	}
 #
 #}
-exec_always --no-startup-id /home/rjn/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id fcitx5 &
 #exec --no-startup-id  clash
