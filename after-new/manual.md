@@ -1,5 +1,9 @@
 # 更改默认终端
 
+# wechat: wechat-universal-bwrap
+# qq:linuxqq
+
+
 # pulseaudio声卡正常
     使用kmix开启声音即可
 
