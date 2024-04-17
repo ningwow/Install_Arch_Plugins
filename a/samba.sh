@@ -6,14 +6,14 @@ wget -O /etc/samba/smb.conf https://git.samba.org/samba.git/?p=samba.git;a=blob_
 #这是samba的示例文件，更改里面的底部的myshare就可以了
 # cp  /etc/samba/smb.conf /etc/samba/smb.conf
 
-echo "[share]" >> /etc/samba/smb.conf
-echo "   comment = rjn`s share" >> /etc/samba/smb.conf
-echo "   path = /home/rjn/Document/.share" >> /etc/samba/smb.conf
-echo "   valid users = rjn" >> /etc/samba/smb.conf
-echo "   public = no" >> /etc/samba/smb.conf
-echo "   writable = yes" >> /etc/samba/smb.conf
-echo "   printable = no" >> /etc/samba/smb.conf
-echo "   create mask = 0700" >> /etc/samba/smb.conf
+echo "[share]"                        >> /etc/samba/smb.conf
+echo "   comment = rjn`s share"       >> /etc/samba/smb.conf
+echo "   path = /home/rjn/.share/win" >> /etc/samba/smb.conf
+echo "   valid users = rjn"           >> /etc/samba/smb.conf
+echo "   public = no"                 >> /etc/samba/smb.conf
+echo "   writable = yes"              >> /etc/samba/smb.conf
+echo "   printable = no"              >> /etc/samba/smb.conf
+echo "   create mask = 0777"          >> /etc/samba/smb.conf
 systemctl enable --now smb
 systemctl enable --now nmb
 
