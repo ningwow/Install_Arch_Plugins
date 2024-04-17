@@ -272,3 +272,4 @@ exec blueberry-tray &
 exec  picom &
 exec --no-startup-id xautolock -time 1h -locker 'i3lockr --blur=30'
 exec xfce4-power-manager &
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

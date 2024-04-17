@@ -33,6 +33,7 @@ pacman -S --noconfirm gdb code python python-pip
 
 #安装杂项
 pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent p7zip cheese    #gnome相机
+pacman -S --noconfirm polkit-gnome #polkit自启动的图形化代理程序，重要，，，程序自启动在i3配置文件中
 
 #切换zsh
 chsh -s /bin/zsh rjn
