@@ -19,8 +19,8 @@ systemctl enable --now nmb
 
 
 # -s 选项为不提示输出内容。便于直接print,-a 添加用户
-sudo printf "301791\n301791\n"  |  sudo smbpasswd -a -s rjn
-#printf "301791\n301791\n"  | sudo -a smbpasswd rjn -s
+sudo printf "密码\n密码\n"  |  sudo smbpasswd -a -s rjn
+#printf "密码\n密码\n"  | sudo -a smbpasswd rjn -s
 
 
 # 连接方式,[share]，名称看这个
