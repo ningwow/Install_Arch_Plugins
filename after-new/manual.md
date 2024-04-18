@@ -82,3 +82,6 @@
 # vscode安装
     # pacman -S --noconfirm code    这是开源版本，功能不齐全，无法使用
     yay -S  visual-studio-code-bin      这是官方版本，很nice
+
+# polkit的提权配置非常重要，
+    # 请参考 "../a/importent-polkit.sh"
