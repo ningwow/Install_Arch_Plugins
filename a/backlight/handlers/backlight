@@ -1,11 +1,21 @@
 #!/bin/bash
 
+
+# backlight=/sys/class/backlight/intel_backlight/
+# step=9600
+# repo="0 1 2 3 4 5 6 7 8 9 10"
+# light=(< $backlight/brightness)
+# a=""
+# case $1 in
+# 	-) echo $(($(< $backlight/brightness) - $step)) > $backlight/brightness;;
+# 	+) echo $(($(< $backlight/brightness) + $step)) > $backlight/brightness;;
+# esac
+#### 以上代码为原版，已知可正常执行，但有三处错误，下方为改正，但未测试
 backlight=/sys/class/backlight/intel_backlight/
 step=9600
-repo="0 1 2 3 4 5 6 7 8 9 10"
-light=(< $backlight/brightness)
-a=""
+light=$(< $backlight/brightness)
 case $1 in
-	-) echo $(($(< $backlight/brightness) - $step)) > $backlight/brightness;;
-	+) echo $(($(< $backlight/brightness) + $step)) > $backlight/brightness;;
+	-) echo $((light - $step)) > $backlight/brightness;;
+	+) echo $((light + $step)) > $backlight/brightness;;
 esac
+# 已测试正常执行
