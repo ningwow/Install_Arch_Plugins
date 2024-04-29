@@ -33,7 +33,6 @@ set_passwd() {
     echo "root:$i_val" | chpasswd
     useradd -m -G wheel  rjn   #创建新用户并设置密码
     echo "rjn:$i_val" | chpasswd
-
 }
 
 #设置时区
@@ -56,6 +55,7 @@ while true; do
     else
         # 如果提供了非空输入，调用 perform_action 函数并传递输入
         time_zone "$input"
+        break
     fi
 done
 
@@ -81,6 +81,7 @@ while true; do
     else
         # 如果提供了非空输入，调用 perform_action 函数并传递输入
         time_zone "$input"
+        break
     fi
 done
 
@@ -104,6 +105,7 @@ while true; do
     else
         # 如果提供了非空输入，调用 perform_action 函数并传递输入
          key_map "$input"
+         break
     fi
 done
 
@@ -127,6 +129,7 @@ while true; do
     else
         # 如果提供了非空输入，调用 perform_action 函数并传递输入
         set_hostname "$input"
+        break
     fi
 done
 
@@ -149,7 +152,7 @@ while true; do
     # 检查输入是否为空，若为空执行默认操作并退出循环
     if [[ -z "$input" ]]; then
         echo "passwd is null"
-
+        continue
     elif [[ "$input" == "quit" ]]; then
         # 提供了一个退出脚本的选项，当用户输入 "quit" 时，脚本将结束
         echo "Exiting program."
@@ -157,13 +160,14 @@ while true; do
     else
         # 如果提供了非空输入，调用 perform_action 函数并传递输入
         set_passwd "$input"
+        break
     fi
 done
 
 echo "即将安装引导加载程序"
 #安装引导加载程序   /important
 pacman -S --noconfirm grub efibootmgr os-prober
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "即将安装基本功能包"

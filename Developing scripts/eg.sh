@@ -25,5 +25,6 @@ while true; do
     else
         # 如果提供了非空输入，调用 perform_action 函数并传递输入
          "$input"
+         break
     fi
 done
