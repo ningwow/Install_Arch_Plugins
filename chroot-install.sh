@@ -32,7 +32,7 @@ set_passwd() {
     # 在这里，你可以添加更多的代码来处理 i_val，比如数据库操作、文件处理等
     echo "root:$i_val" | chpasswd
     useradd -m -G wheel  rjn   #创建新用户并设置密码
-    echo "rjn:$i_val" | chpasswd
+    echo "$newuser:$i_val" | chpasswd
 }
 
 #设置时区
@@ -142,7 +142,30 @@ echo "%wheel    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 #初始化文件,initramfs (initial ram filesystem) 是一个临时的根文件系统
 mkinitcpio -P
 
-#设置用户密码
+#新建的用户名
+input=""
+while true; do
+    # 提示用户输入值或直接按回车键选择默认操作
+    echo "input new user name:"
+    read -s input
+    
+    # 检查输入是否为空，若为空执行默认操作并退出循环
+    if [[ -z "$input" ]]; then
+        echo "passwd is null"
+        continue
+    elif [[ "$input" == "quit" ]]; then
+        # 提供了一个退出脚本的选项，当用户输入 "quit" 时，脚本将结束
+        echo "Exiting program."
+        exit 0
+    else
+        # 如果提供了非空输入，调用 perform_action 函数并传递输入
+        add_user "$input"
+        break
+    fi
+done
+
+newuser=$input
+#新建用户及设置用户及root密码
 input=""
 while true; do
     # 提示用户输入值或直接按回车键选择默认操作
