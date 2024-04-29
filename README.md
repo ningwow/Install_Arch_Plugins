@@ -82,15 +82,21 @@
     若需要对efi挂载路径改变，请确保上方的挂载点与grub路径相同
     默认root密码和新建的用户密码相同
     默认新用户加入wheel组
+    可选项：时域，语言，键盘映射，主机名，新建用户明，密码
+    其余配置请更改脚本
+### 克隆本项目
 ```shell
     git clone https://github.com/ningwow/Install_Arch_Plugins.git
     cd Install_Arch_Plugins
     chmod +x chroot-install.sh
 ```
+### 脚本选项
     对于脚本中的选择：默认，quit，*
     默认会执行默认的配置，quit执行脚本退出，
     每输入一步，执行一步操作，若中途退出，请注意脚本执行过程中的以执行的操作
+### 执行脚本
 ```shell
     使用此命令执行脚本
     ./chroot-install.sh
 ```
+
