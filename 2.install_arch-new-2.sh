@@ -31,6 +31,7 @@ mkinitcpio -P
 echo "root:******" | chpasswd
 useradd -m -G wheel  rjn   #创建新用户并设置密码
 echo "rjn:******" | chpasswd
+echo "%wheel    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
 
 #安装引导加载程序   /important
@@ -40,7 +41,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 #安装基本功能
 pacman -S --noconfirm sudo acpi acpid rust go    #安装杂项
-echo "%wheel    ALL=(ALL:ALL) ALL" >> /etc/sudoers
+
 
 pacman -S --noconfirm ntfs-3g intel-ucode   #文件系统实用程序/后续补充
 #pacman -S --noconfirm alsa-utils pulseaudio pulseaudio-bluetooth pulseaudio-alsa pulseaudio-jack pulseaudio-lirc sof-firmware alsa-ucm-conf kmix  #声音服务器及其他声音程序
@@ -56,7 +57,6 @@ systemctl enable NetworkManager
 pacman -S --noconfirm xdg-user-dirs
 su rjn -c "LC_ALL=C xdg-user-dirs-update --force"
 LC_ALL=C xdg-user-dirs-update --force
-
 
 #现在这是一个只有命令行的arch
 
