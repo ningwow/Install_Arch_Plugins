@@ -6,7 +6,7 @@ timedatectl set-ntp true
 #hwclock --systohc  \\这是同步硬件时钟，在双启动下不要执行
 systemctl enable dhcpcd
 
-pacman -S --noconfirm  make gcc thunar gvfs-mtp gvfs-smb  #gvfs-*都是thunar的插件
+pacman -S --noconfirm  make gcc gdb thunar gvfs-mtp gvfs-smb  #gvfs-*都是thunar的插件
 #密钥串及反射器(定时更新mirror)
 pacman -S --noconfirm archlinux-keyring gnome-keyring reflector
 echo "--country China" >> /etc/xdg/reflector/reflector.conf
@@ -29,7 +29,7 @@ cd yay
 #su rjn -c "makepkg -si"    需要等待输入必须手动
 
 #开发环境
-pacman -S --noconfirm gdb code python python-pip
+pacman -S --noconfirm code python python-pip
 
 #安装杂项
 pacman -S --noconfirm zsh zsh-completions alacritty qbittorrent p7zip cheese    #gnome相机
