@@ -147,7 +147,7 @@ input=""
 while true; do
     # 提示用户输入值或直接按回车键选择默认操作
     echo "input new user name:"
-    read -s input
+    read input
     
     # 检查输入是否为空，若为空执行默认操作并退出循环
     if [[ -z "$input" ]]; then

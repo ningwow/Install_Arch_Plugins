@@ -39,53 +39,19 @@
     timedatectl set-timezone Asia/Shanghai  ###设置时区
 ```
 ---
-### ext4文件系统
-#### 磁盘分区
-    efi分区，主分区，swap分区(通常为内存大小或内存大小的一半)
-```shell
-    lsblk   ###查看磁盘分布
-```
-    使用cfdisk工具分盘，efi分区大小为1G，UEFI System， / 分区类型为 linux File System
-```shell
-    cfdisk /dev/...     ###efi分区/home分区/根分区/swap分区
-```
-    格式化分区
-```shell
-    mkfs.fat -F 32 /dev/...     ###格式化efi分区
-    mkfs.ext4 /dev/...      ###格式化正常分区
-    mkswap /dev/...     ###格式花swap分区
-```
-#### 挂载文件系统
-    将分好的盘挂在到/mnt中
-    这里是将efi分区挂载到/boot中，若对此改变,需要在chroot-install.sh 脚本中同步修改grub安装路径
-```shell
-    mount /dev/... /mnt     ###挂载普通分区
-    mount --mkdir /dev/... /mnt/boot    ###挂载boot引导分区
-    swapon /dev/...     ###启用swap分区
-```
+
 ---
 ### btrfs 文件系统
-    总体挂载状态：
-```shell
-        $ lsblk
-    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-    sda      8:0    0 465.8G  0 disk
-    ├─sda1   8:1    0   512M  0 part /boot
-    ├─sda2   8:2    0    16G  0 part [SWAP]
-    └─sda3   8:3    0 449.3G  0 part /home
-                                    /var/log
-                                    /var/cache/pacman/pkg
-                                    /
-```
 
     第一步：
-    使用cfdisk /dev/nvme*** 按照以上分区创建分区
+    使用cfdisk /dev/nvme*** 最少分boot分区(1g),和主分区
+
     第二步：
     然后进行格式化
 ```shell
     mkfs.fat -F 32 /dev/sda1    # 格式化 boot 分区
-    mkswap /dev/sda2    # 格式化 swap 分区
-    mkfs.btrfs /dev/sda3    # 格式化主分区
+    mkswap /dev/sda2        # 格式化主分区
+    mkfs.btrfs /dev/sda3    # 格式化 swap 分区
 ```
     第三步：
     然后是挂载分区，btrfs 分区的挂载比较复杂，首先挂载整个 btrfs 分区到 /mnt，这样才可以创建子卷：
@@ -94,6 +60,8 @@
     # 创建子卷
     btrfs subvolume create /mnt/@
     btrfs subvolume create /mnt/@home
+    btrfs subvolume create /mnt/@etc
+    btrfs subvolume create /mnt/@usr
     btrfs subvolume create /mnt/@log
     btrfs subvolume create /mnt/@pkg
     umount /dev/sda3    # 卸载分区
@@ -138,20 +106,23 @@
 ### 关于btrfs的快照
 
 btrfs 文件系统最吸引人的特性之一就是快照，通过快照可以方便地回滚系统，虽然我们也可以在命令行手动创建快照，但多少有些麻烦，为了更好地创建和管理快照，可以借助一些其他工具，我使用的是 LinuxMint 团队开发的 Timeshift，注意 Timeshift 只支持 Ubuntu 类型的子卷布局，这在之前的分区过程中已经搞定了。只需从 AUR 安装，之后打开按照向导一路设置就好了，记得要启用 cronie 服务，sudo systemctl enable cronie.service --now，以保证 Timeshift 能够定时创建快照。此外也可以安装 timeshift-autosnap，这个包添加了一个 pacman hook，可以在每次系统升级前自动创建快照。
+```shell
+接下来安装 grub-btrfs，这个软件可以在每次重新生成 grub 配置文件时添加快照的入口，可以在不恢复快照的情况下直接启动进入快照，方便故障排查。若是觉得每次创建快照后都要手动运行 grub-mkconfig 过于麻烦，这个包还提供了一个 systemd 服务 grub-btrfsd.service，需先安装 grub-btrfs 的可选依赖 inotify-tools，然后启用这个服务 sudo systemctl enable grub-btrfsd.service --now 就可以在每次创建快照后自动生成 grub 配置文件了，
 
-接下来安装 grub-btrfs，这个软件可以在每次重新生成 grub 配置文件时添加快照的入口，可以在不恢复快照的情况下直接启动进入快照，方便故障排查。若是觉得每次创建快照后都要手动运行 grub-mkconfig 过于麻烦，这个包还提供了一个 systemd 服务 grub-btrfsd.service，需先安装 grub-btrfs 的可选依赖 inotify-tools，然后启用这个服务 sudo systemctl enable grub-btrfsd.service --now 就可以在每次创建快照后自动生成 grub 配置文件了，不过这个服务默认监视的快照路径在 /.snapshots，而 Timeshift 创建的快照是一个动态变化的路径，想要让它监视 Timeshift 的快照路径需要编辑 service 文件。一般情况下不推荐直接编辑位于 /usr/lib/systemd/system/ 下的 service 文件，因为软件包升级会将编辑后的文件覆盖掉，还好 systemd 提供了解决方案，运行 sudo systemctl edit --full grub-btrfsd，这个命令会将 /usr/lib/systemd/system/grub-btrfsd.service 文件复制到 /etc/systemd/system/grub-btrfsd.service，再用系统默认的文件编辑器打开，这样编辑后的文件就不会被覆盖掉了，找到下面这一行：
-
+```
+不过这个服务默认监视的快照路径在 /.snapshots，而 Timeshift 创建的快照是一个动态变化的路径，想要让它监视 Timeshift 的快照路径需要编辑 service 文件。一般情况下不推荐直接编辑位于 /usr/lib/systemd/system/ 下的 service 文件，因为软件包升级会将编辑后的文件覆盖掉，还好 systemd 提供了解决方案，运行 sudo systemctl edit --full grub-btrfsd，这个命令会将 /usr/lib/systemd/system/grub-btrfsd.service 文件复制到 /etc/systemd/system/grub-btrfsd.service，再用系统默认的文件编辑器打开，这样编辑后的文件就不会被覆盖掉了，找到下面这一行：
+```shell
 ExecStart=/usr/bin/grub-btrfsd --syslog /.snapshots
 修改为：
 
 ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto
 这样 grub-btrfs 就会监视 Timeshift 创建的快照了。
-
+```
 Timeshift 创建的快照默认是可读写的，但若用其他的快照管理程序，创建的快照可能是只读的，这种情况下，直接启动进入快照可能会发生错误，这种情况 grub-btrfs 也提供了解决方案，grub-btrfs 提供了一个 grub-btrfs-overlayfs 钩子，编辑 /etc/mkinitcpio.conf，找到 HOOKS 一行，在括号最后添加 grub-btrfs-overlayfs，比如这样：
 
 HOOKS=(base udev autodetect modconf block filesystems keyboard fsck grub-btrfs-overlayfs)
 然后重新生成 initramfs，sudo mkinitcpio -P。在这之后创建的只读快照，将会以 overlayfs 的形式启动进入，所有的改动将会存储在内存里，重启后都会消失，逻辑和大多数系统的 live-cd 安装镜像差不多。
-
+---
 
 ### 选择mirror镜像    /任选其一
     建议选3
@@ -169,6 +140,11 @@ HOOKS=(base udev autodetect modconf block filesystems keyboard fsck grub-btrfs-o
 
 ### arch-chroot /mnt      /chroot到新系统
     $ arch-chroot /mnt
+### 修改mkinitcpio.conf文件
+```shell
+vim /etc/mkinitcpio.conf
+在MODULES=(btrfs) 中加上btrfs
+```
 ---
 # 在进入到chroot系统后，就可以使用脚本文件简化操作
 ---
