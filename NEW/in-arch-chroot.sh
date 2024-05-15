@@ -195,30 +195,21 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 
 
-echo "即将安装基本功能包"
-#安装基本功能
-pacman -S --noconfirm sudo acpi acpid rust go    #安装杂项
-pacman -S --noconfirm ntfs-3g intel-ucode   #文件系统实用程序/后续补充
 
 
-# 声音服务
-#pacman -S --noconfirm alsa-utils pulseaudio pulseaudio-bluetooth pulseaudio-alsa pulseaudio-jack pulseaudio-lirc sof-firmware alsa-ucm-conf kmix  #声音服务器及其他声音程序
-pacman -S --noconfirm alsa-utils pipewire pipewire-pulse pipewire-alsa sof-firmware alsa-ucm-conf kmix  #使用这个，更高级，支持更多，
-pacman -S --noconfirm pavucontrol   #音频管理软件，比装，横好用
+pacman -S --noconfirm sudo 
+
 
 # 网络服务
-pacman -S --noconfirm networkmanager network-manager-applet dhcpcd networkmanager-openvpn openvpn     #网络服务程序
+pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 
 
 
 
-echo "显卡驱动自选，无安装任何显卡驱动，只有内置开源驱动n"
-#安装nvidia驱动程序或暂时安装开源驱动程序
-#pacman -S xf86-video-nouveau       #开源驱动程序
 
-echo "创建用户英文家目录"
-#安装工具，创建用户下强制创建英文目录
+# echo "创建用户英文家目录"
+# 安装工具，创建用户下强制创建英文目录
 pacman -S --noconfirm xdg-user-dirs
 su rjn -c "LC_ALL=C xdg-user-dirs-update --force"
 LC_ALL=C xdg-user-dirs-update --force

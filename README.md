@@ -133,7 +133,7 @@ HOOKS=(base udev autodetect modconf block filesystems keyboard fsck grub-btrfs-o
 ```
 ### 安装基本包    /important
 ```shell
-    pacstrap -K /mnt base base-devel linux linux-headers linux-firmware git vim wget
+    pacstrap  /mnt base base-devel linux linux-headers linux-firmware git vim wget
 ```
 ### 生成fstab文件     important
     genfstab -U /mnt >> /mnt/etc/fstab
