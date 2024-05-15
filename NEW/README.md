@@ -88,34 +88,10 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # 进入新系统
 arch-chroot /mnt
 
-# 设置时区
-ln -sf /usr/share/zoneinfo/Your/Timezone /etc/localtime
-hwclock --systohc
+# 下载插件
+https://github.com/ningwow/Install_Arch_Plugins.git
 
-# 设置本地化
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-
-# 设置主机名
-echo "YourHostname" > /etc/hostname
-
-# 设置hosts
-echo "127.0.0.1   localhost" >> /etc/hosts
-echo "::1         localhost" >> /etc/hosts
-echo "127.0.1.1   YourHostname.localdomain YourHostname" >> /etc/hosts
-
-# 设置root密码
-passwd
-
-# 安装并配置引导程序
-pacman -S grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
-
-# 配置网络服务
-pacman -S --noconfirm networkmanager network-manager-applet dhcpcd networkmanager-openvpn openvpn
-systemctl enable NetworkManager
+# 执行 in-arch-chroot.sh，配置基本设置和网络服务
 
 # 退出chroot环境
 exit
@@ -135,6 +111,7 @@ btrfs balance start -d -m /mnt
 
 - **开启实时文件系统数据校验**：
 ```bash
+# -o无法执行
 btrfs balance start -d -m -o /mnt
 ```
 
@@ -144,6 +121,7 @@ btrfs subvolume list -p /mnt
 ```
 找到要压缩的子卷ID后执行：
 ```bash
+# 子卷压缩
 btrfs filesystem defragment -r -v -czstd -s <subvol_id> /mnt
 ```
 

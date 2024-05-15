@@ -139,8 +139,6 @@ echo "::1       localhost" >> /etc/hosts
 echo "127.0.0.1 First" >> /etc/hosts
 echo "%wheel    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 
-#初始化文件,initramfs (initial ram filesystem) 是一个临时的根文件系统
-mkinitcpio -P
 
 #新建的用户名
 input=""
@@ -159,7 +157,6 @@ while true; do
         exit 0
     else
         # 如果提供了非空输入，调用 perform_action 函数并传递输入
-        add_user "$input"
         break
     fi
 done
@@ -187,18 +184,16 @@ while true; do
     fi
 done
 
-echo "即将安装引导加载程序"
-#安装引导加载程序   /important
+#初始化文件,initramfs (initial ram filesystem) 是一个临时的根文件系统
+mkinitcpio -P
+
+
+#安装引导加载程序   
 pacman -S --noconfirm grub efibootmgr os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
-
-
-
-
 pacman -S --noconfirm sudo 
-
 
 # 网络服务
 pacman -S --noconfirm networkmanager
