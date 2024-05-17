@@ -65,7 +65,8 @@ sudo vim /etc/dnsmasq.conf
 ```ini
 # 监听本地回环地址和本地网络接口（只为本地地址提供dns解析）
 listen-address=127.0.0.1
-
+# 更改端口，防止与其他服务冲突（qemu）
+port=5353
 # 你可以添加更多的配置，根据需要定制
 # 例如指定上游DNS服务器（）
 server=8.8.8.8
