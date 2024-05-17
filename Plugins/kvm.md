@@ -1,11 +1,11 @@
 
 
-# 安装及加入组
-sudo pacman -S  qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat ebtables libguestfs spice-vdagent
+# 安装及加入组（ebtables = iptables-nfs  qemu = qemu-full）
+sudo pacman -S  qemu-full virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat ebtables libguestfs spice-vdagent
 
 sudo usermod -a -G libvirt rjn
-
 newgrp libvirt
+
 # 配置文件,一定要加双引号
 # 请手动输入，echo没有引号
 #echo "unix_sock_group = "libvirt"" >> /etc/libvirt/libvirtd.conf
