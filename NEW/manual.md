@@ -6,6 +6,11 @@ cd yay
 #su rjn -c "makepkg -si"    需要等待输入必须手动
 ```
 
+### 安装Hyprland(基于sway的窗口管理器)
+```bash
+
+
+```
 ### 切换zsh
 ```bash
 cd /home/rjn
@@ -25,4 +30,9 @@ sed -i 's/export ZSH=export ZSH=\/usr\/share\/oh-my-zsh\//g' /root/.zshrc
 ```bash
 #xrandr --output HDMI-1 --mode 1920x1080 --rate 60
 #echo "xrandr --output HDMI-1 --mode 1920x1080 --rate 60" >> /etc/profile
+```
+
+### iptables ufw 配置允许端口转发
+```bash
+
 ```

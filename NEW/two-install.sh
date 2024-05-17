@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 开发环境
-pacman -S --noconfirm  make gcc gdb code python python-pip
+pacman -S --noconfirm  make gcc gdb rust go code python python-pip
 # 实用工具
 pacman -S --noconfirm thunar gvfs-mtp gvfs-smb zsh zsh-completions alacritty qbittorrent p7zip cheese    #gnome相机
 # 系统工具
@@ -21,12 +21,12 @@ chsh -s /bin/zsh root
 
 
 # 安装 xorg服务器
-# pacman -S --noconfirm xorg-server xorg-xinit xorg-server-utils xorg-fonts xorg-twm xorg-xclock
+# pacman -S --noconfirm xorg-server xorg-xinit xorg-fonts xorg-twm xorg-xclock
 
 # 安装 wayland协议包 及 wayland显示服务器
 pacman -S --noconfirm wayland weston
 
-# 安装 适合wayland的窗口管理器sway （类i3窗口管理器）
+# 安装 适合wayland的窗口管理器sway （类i3窗口管理器
 pacman -S --noconfirm sway swaylock swayidle waybar
 
 # 安装显示管理器
