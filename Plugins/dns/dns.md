@@ -67,7 +67,7 @@ sudo mv /etc/resolv.conf /etc/resolv.conf.backup
 然后创建一个新的 `resolv.conf` 文件，指向 `dnsmasq`：
 
 ```bash
-echo -e "nameserver 223.5.5.5\nnameserver 8.8.8.8" > /etc/resolv.conf
+echo -e "nameserver 223.5.5.5\nnameserver 8.8.8.8\noptions edns0 trust-ad" > /etc/resolv.conf
 
 # echo "nameserver 223.5.5.5" | sudo tee /etc/resolv.conf
 ```
