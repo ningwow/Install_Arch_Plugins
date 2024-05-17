@@ -37,12 +37,14 @@ sudo nano /etc/dnsmasq.conf
 listen-address=127.0.0.1
 
 # 你可以添加更多的配置，根据需要定制
-# 例如指定上游DNS服务器
-server=8.8.8.8
-server=8.8.4.4
+# 例如指定上游DNS服务器（已在下方指定文件，这里不再指定）
+#server=8.8.8.8
+#server=8.8.4.4
 
 # 缓存设置
 cache-size=1000
+# 指定上游dns服务器地址文件
+resolv-file=/etc/resolv.conf
 ```
 
 ### 停止并禁用 `systemd-resolved`
@@ -65,7 +67,9 @@ sudo mv /etc/resolv.conf /etc/resolv.conf.backup
 然后创建一个新的 `resolv.conf` 文件，指向 `dnsmasq`：
 
 ```bash
-echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
+echo -e "nameserver 223.5.5.5\nnameserver 8.8.8.8" > /etc/resolv.conf
+
+# echo "nameserver 223.5.5.5" | sudo tee /etc/resolv.conf
 ```
 
 ### 启动并启用 `dnsmasq`
