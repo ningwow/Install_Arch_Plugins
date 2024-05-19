@@ -18,10 +18,11 @@ su rjn -c "mkdir ~/.vim/autoload"
 mkdir ~/.vim/bundle
 su rjn -c "mkdir  ~/.vim/bundle"
 #手动安装插件
-
-
 #vim 启动   ：PlugStatus #查看插件状态  ：PlugInstall #安装之前在配置文件中声明的插件
 
+
 #安装插件管理工具
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-su rjn -c "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+su rjn -c "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"

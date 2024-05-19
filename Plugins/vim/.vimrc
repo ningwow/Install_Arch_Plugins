@@ -16,6 +16,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+"theme
+Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 let g:airline_theme='one'
 Plug 'whatyouhide/vim-gotham'
@@ -82,7 +84,8 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 """自定义配色目录~/.vim/colors
 set background=dark
 "colorscheme moonfly 
-colorscheme one 
+"colorscheme one 
+colorscheme gruvbox 
 "colorscheme gotham256
 "colorscheme spaceduck 
 "default, blue, darkblue, delek, desert, elford, evening, industry, 
