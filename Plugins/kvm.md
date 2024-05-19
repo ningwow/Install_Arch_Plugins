@@ -18,7 +18,7 @@ modprobe kvm_intel nested=1
 
 # 永久生效,创建以下配置文件
 #/etc/modprobe.d/kvm_intel.conf
-#options kvm_intel nested=1
+options kvm_intel nested=1
 
 
 # 默认自动启动默认网络
