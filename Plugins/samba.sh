@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# 如果使用manjaro,无法连接samba服务，可以删除samab及依赖，单独安装samba,或者更换配置文件，使用下方的官方的配置文件
+
 pacman -S --noconfirm samba
 #在arco中配置文件可以直接复制，其他系统中若不自动生成配置文件，则在下一行网址有示例，取消注释即可
 wget -O /etc/samba/smb.conf https://git.samba.org/samba.git/?p=samba.git;a=blob_plain;f=examples/smb.conf.default;hb=HEAD
@@ -7,7 +9,7 @@ wget -O /etc/samba/smb.conf https://git.samba.org/samba.git/?p=samba.git;a=blob_
 # cp  /etc/samba/smb.conf /etc/samba/smb.conf
 
 echo "[share]"                        >> /etc/samba/smb.conf
-echo "   comment = rjn`s share"       >> /etc/samba/smb.conf
+echo "   comment = rjns share"       >> /etc/samba/smb.conf
 echo "   path = /home/rjn/.share/win" >> /etc/samba/smb.conf
 echo "   valid users = rjn"           >> /etc/samba/smb.conf
 echo "   public = no"                 >> /etc/samba/smb.conf
@@ -20,6 +22,8 @@ systemctl enable --now nmb
 
 # -s 选项为不提示输出内容。便于直接print,-a 添加用户
 sudo printf "密码\n密码\n"  |  sudo smbpasswd -a -s rjn
+or/
+sudo smbpasswd -a -s rjn
 #printf "密码\n密码\n"  | sudo -a smbpasswd rjn -s
 
 
