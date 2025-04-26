@@ -7,8 +7,9 @@
 #!/bin/bash
 sudo pacman -S --noconfirm alacritty
 #配置文件难找
-su rjn -c "mkdir -p /home/rjn/.config/alacritty/"
-su rjn -c "cp alacritty/alacritty.toml > /home/rjn/.config/alacritty/alacritty.toml"
+su $USER -c "mkdir -p /home/rjn/.config/alacritty/"
+su $USER -c "cp -r alacritty/alacritty.toml > /home/rjn/.config/alacritty/alacritty.toml"
+su $USER -c "cp -r alacritty/themes > /home/rjn/.config/alacritty/"
 # 主题颜色配置
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
